@@ -1,0 +1,2 @@
+﻿INSERT INTO [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (N'51babd31-3504-40ec-86d9-b300a31d279f', N'User', N'USER', N'802a4957-ea81-4b24-a639-716406208b81')
+INSERT INTO [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (N'89e43b8a-8d9a-4474-b341-dbd3e575f52e', N'Admin', N'ADMIN', N'81f7df85-6a1d-4108-97b7-b9d4aede69df')

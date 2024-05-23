@@ -1,0 +1,119 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: #f0f0f0; /* Light gray background */
+}
+
+/* Animation for the navbar links */
+.navbar-nav .nav-item {
+    animation: fadeInDown 0.5s ease forwards;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation for the logout button */
+.navbar-nav .nav-item.logout-button {
+    animation: fadeInRight 0.5s ease forwards;
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Animation for the footer */
+.footer {
+    animation: slideInUp 0.5s ease forwards;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Customizing colors and background colors */
+.navbar {
+    background-color: #2196f3; /* Blue background */
+}
+
+.navbar-brand,
+.navbar-nav .nav-item .nav-link {
+    color: #18bc9c; /* Light green text */
+}
+
+    .navbar-brand:hover,
+    .navbar-nav .nav-item .nav-link:hover {
+        color: #18bc9c; /* Darker green on hover */
+    }
+
+.footer {
+    background-color: #18bc9c; /* Green background for footer */
+    color: #f0f0f0; /* Light green text */
+}
+
+    .footer a {
+        color: white; /* Darker green for footer links */
+    }
+
+        .footer a:hover {
+            color: black; /* Light green text on hover */
+        }
+
+.card-title {
+    font-size: 1.75rem;
+    font-weight: bold;
+}
+
+.card-body dl dt {
+    font-weight: bold;
+}
+
+.card-body dl dd {
+    margin-bottom: 1rem;
+}
+
+.img-fluid {
+    max-height: 300px;
+    object-fit: cover;
+}
+
+message.txt
+2 Ko

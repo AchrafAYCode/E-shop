@@ -1,0 +1,105 @@
+﻿@model IEnumerable<Projet.Models.Product>
+@{
+    ViewBag.Title = "Liste des articles";
+}
+<style>
+    .form-container {
+        margin-bottom: 20px;
+    }
+
+        .form-container .form-group {
+            margin-bottom: 15px;
+        }
+
+    .card-group {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .card {
+        margin: 15px;
+        min-width: 18rem;
+        max-width: 30.5%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-header {
+        background-color: #f8f9fa;
+        padding: 15px;
+    }
+
+        .card-header h5 {
+            margin: 5px 0;
+        }
+
+    .card-img-top {
+        width: 100%;
+        height: auto;
+    }
+
+    .card-footer {
+        background-color: #f8f9fa;
+        padding: 10px;
+    }
+
+        .card-footer .btn {
+            margin: 5px;
+        }
+
+    .imageThumbnail {
+        max-height: 200px;
+        object-fit: cover;
+    }
+</style>
+
+
+<form method="get" asp-controller="Product" asp-action="Index" class="mb-3">
+    <div class="form-group">
+        <label for="categoryId">Catégorie</label>
+        <select id="categoryId" name="categoryId" class="form-control" asp-items="ViewBag.Categories">
+            <option value="">Toutes les catégories</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="searchString">Nom de l'article</label>
+        <input type="text" id="searchString" name="searchString" class="form-control" placeholder="Rechercher par nom">
+    </div>
+    <div class="form-group">
+        <label for="sortOrder">Trier par prix</label>
+        <select id="sortOrder" name="sortOrder" class="form-control">
+            <option value="">Sélectionner</option>
+            <option value="priceAsc">Prix ascendant</option>
+            <option value="priceDesc">Prix descendant</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Filtrer</button>
+</form>
+
+<div class="card-group">
+    @foreach (var product in Model)
+    {
+        var photoPath = Url.Content("~/images/" + (product.Image ?? "noimage.jpg"));
+        <div class="card m-3" style="min-width: 18rem; max-width: 30.5%;">
+            <div class="card-header">
+                <h5><b>Name : </b> @product.Name</h5>
+                <h5><b>Désignation : </b> @product.Description</h5>
+                <h5><b>Prix : </b>@product.Price</h5>
+                <h5><b>Quantité en stock : </b> @product.StockQuantity</h5>
+            </div>
+            <img class="card-img-top imageThumbnail" src="@photoPath" asp-append-version="true" />
+
+            <div class="card-footer text-center">
+                <a asp-controller="Product" asp-action="Details" asp-route-id="@product.ProductId" class="btn btn-primary m-1">View</a>
+
+                @if (User.IsInRole("Admin"))
+                {
+                    <a asp-controller="Product" asp-action="Edit" asp-route-id="@product.ProductId" class="btn btn-primary m-1">Edit</a>
+                    <a asp-controller="Product" asp-action="Delete" asp-route-id="@product.ProductId" class="btn btn-danger m-1">Delete</a>
+                }
+
+                <a asp-controller="Cart" asp-action="AddToCart" asp-route-id="@product.ProductId" class="btn btn-success m-1">Ajouter au panier</a>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,2 @@
+﻿INSERT INTO [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'23248f3c-8719-472e-bd2d-a02a1ef14ed8 ', N'51babd31-3504-40ec-86d9-b300a31d279f')
+INSERT INTO [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'6056e528-89d4-4c9d-890c-93d42b503865', N'89e43b8a-8d9a-4474-b341-dbd3e575f52e')
